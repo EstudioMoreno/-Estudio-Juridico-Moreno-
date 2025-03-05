@@ -66,21 +66,43 @@ Brindamos asesoramiento integral en divorcios, régimen de visitas, cuota alimen
         <h2>CONTACTO</h2>
         <p>📍 UBICACION (Google Maps - PROXIMAMENTE)</p>
         <p>📞 <a href="tel:+3704574492">LLAMADA INMEDIATA</a></p>
-        <p>💬 <a href="https://wa.me/549XXXXXXXXXX" target="_blank">WhatsApp</a></p>
-        <form>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-            
-            <label for="mensaje">Mensaje:</label>
-            <textarea id="mensaje" name="mensaje" required></textarea>
-            
-            <button type="submit">Enviar</button>
-        </form>
-    </section>
+        <p>💬 <a href="https://wa.me/3704574492" target="_blank">WhatsApp</a></p>
 
+        <form id="contact-form">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="name" name="from_name" placeholder="Tu nombre" required>
+            </div>
+            <div class="mb-3">
+                <input type="email" class="form-control" id="email" name="reply_to" placeholder="Tu correo electrónico" required>
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-warning">Enviar</button>
+        </form>
+    </div>
+</section>
+   <script>
+    // Inicializa EmailJS con tu Public Key
+    emailjs.init("l6w4TwHPPnmV4du7-"); // Reemplázalo si tu clave pública es distinta
+
+    // Escucha el envío del formulario
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Evita que la página se recargue
+
+        console.log("Formulario detectado, intentando enviar...");
+
+        // Envía el formulario a EmailJS usando el ID del servicio y la plantilla
+        emailjs.sendForm("service_f5y1acd", "template_upsfgkg", "#contact-form")
+            .then(function() {
+                alert("✅ Mensaje enviado con éxito.");
+            }, function(error) {
+                alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
+                console.error("Error:", error);
+            });
+    });
+</script>
+    
     <footer>
         <p>© 2025 Estudio Jurídico Moreno & Asoc. Todos los derechos reservados.</p>
     </footer>
