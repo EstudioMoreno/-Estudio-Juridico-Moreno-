@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio Jurídico Moreno & Asoc.</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>ESTUDIO JURÍDICO MORENO & ASOC.</h1>
+        <p class="eslogan">PROTEGIENDO TUS DERECHOS CON INTEGRIDAD Y EXCELENCIA.</p>
+        <p class="frase-secundaria">Tu tranquilidad es nuestra prioridad.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#porque">¿Por qué elegirnos?</a></li>
+            <li><a href="#areas">Áreas de Práctica</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <section id="porque">
+        <h2>¿POR QUÉ ELEGIRNOS?</h2>
+        <p>Brindamos un servicio legal de excelencia con compromiso, ética y resultados comprobados.</p>
+    </section>
+
+    <section id="areas">
+        <h2>ÁREAS DE PRÁCTICA</h2>
+        <div class="area" onclick="toggleDescription('civil')">
+            <h3>Derecho Civil y Comercial</h3>
+            <p id="civil" class="descripcion">Intervención en juicios civiles, redacción de contratos, resolución de conflictos patrimoniales, representación en daños y perjuicios, cobro de deudas, ejecuciones, etc.</p>
+        </div>
+        <div class="area" onclick="toggleDescription('administrativo')">
+            <h3>Derecho Administrativo</h3>
+            <p id="administrativo" class="descripcion">Asesoramiento en procedimientos administrativos, defensa en sanciones, licitaciones públicas, recursos administrativos, etc.</p>
+        </div>
+        <div class="area" onclick="toggleDescription('penal')">
+            <h3>Derecho Penal</h3>
+            <p id="penal" class="descripcion">Defensas en procesos penales, asesoramiento en casos de delitos económicos, querellas, asistencia a víctimas, etc.</p>
+        </div>
+        <div class="area" onclick="toggleDescription('laboral')">
+            <h3>Derecho Laboral</h3>
+            <p id="laboral" class="descripcion">Defensa de derechos del trabajador, despidos, indemnizaciones, accidentes laborales, reclamos de sueldos, etc.</p>
+        </div>
+        <div class="area" onclick="toggleDescription('familia')">
+            <h3>Derecho de Familia</h3>
+            <p id="familia" class="descripcion">Divorcios, régimen de visitas, alimentos, filiación, adopciones, etc.</p>
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>CONTACTO</h2>
+        <p>📍 Ubicación (Google Maps - próximamente)</p>
+        <p>📞 <a href="tel:+549XXXXXXXXXX">Llamada Inmediata</a></p>
+        <p>💬 <a href="https://wa.me/549XXXXXXXXXX" target="_blank">WhatsApp</a></p>
+        <form>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" required></textarea>
+            
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>© 2025 Estudio Jurídico Moreno & Asoc. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
