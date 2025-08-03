@@ -1,107 +1,198 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>German Daniel Moreno.</title>
- <link rel="stylesheet" href="styles_v2.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>German Daniel Moreno - Abogado</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: #0f1a2a;
+      color: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      background: #0f1a2a;
+      padding: 80px 20px 40px;
+      color: gold;
+    }
+
+    header h1 {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    header h2 {
+      font-size: 22px;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      background-color: #1a2235;
+      padding: 15px;
+      border-top: 1px solid gold;
+      border-bottom: 1px solid gold;
+    }
+
+    nav a {
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h3 {
+      color: gold;
+      border-bottom: 1px solid gold;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      font-size: 22px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    form input, form textarea, form button {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    form input, form textarea {
+      background-color: #f2f2f2;
+      color: #000;
+    }
+
+    form button {
+      background-color: gold;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #d4af37;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      background-color: #0d1625;
+      color: #aaa;
+      font-size: 14px;
+      margin-top: 60px;
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>German Daniel Moreno.</h1>
-        <p class="eslogan">Abogado</p>
-        <p class="frase-secundaria"></p>
-    </header>
+  <header>
+    <h1>German Daniel Moreno</h1>
+    <h2>ABOGADO</h2>
+  </header>
 
-    <nav>
-        <ul>
-            <li><a href="#porque">Formación academíca</a></li>
-            <li><a href="#areas">Áreas de Práctica</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
+  <nav>
+    <a href="#formacion">Formación Académica</a>
+    <a href="#areas">Áreas de Práctica</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
 
-    <section id="porque">
-        <h2>Formacion </h2> y <section id="formacion">
-        <h2>ÁREAS DE PRÁCTICA</h2>
-        <div class="area" onclick="toggleDescription('civil')">
-            <h3>Derecho Civil y Comercial</h3>
-            <p id="civil" class="descripcion">Protección y soluciones jurídicas en materia patrimonial y contractual.
+  <section id="formacion">
+    <h3>Formación Académica</h3>
+    <p><strong>Estudios Preuniversitarios:</strong></p>
+    <ul>
+      <li>E.J.I. N°9 “Pastorcito de Belén”</li>
+      <li>Escuela Primaria Don Bosco</li>
+      <li>Colegio Secundario Don Bosco</li>
+    </ul>
 
-Brindamos asesoramiento y representación en juicios civiles, redacción y análisis de contratos, resolución de conflictos patrimoniales y reclamaciones por daños y perjuicios.
+    <p><strong>Título de Grado:</strong></p>
+    <ul>
+      <li>Abogado, Universidad Cuenca del Plata (Sede Formosa), 2025</li>
+    </ul>
 
-Asistimos en cobro de deudas, ejecuciones, sucesiones, propiedad y derechos reales, asegurando estrategias legales eficientes para proteger los intereses de nuestros clientes.
+    <p><strong>Estudios de Especialización:</strong></p>
+    <ul>
+      <li>Especialista en Sexología Clínica y Terapia de Parejas – Universidad Europea Miguel de Cervantes (Finalizado 2024)</li>
+      <li>Especialización en Comunicación Política – Asociación Española de Escuela de Negocios (En curso)</li>
+    </ul>
 
-Nos especializamos en negociaciones y litigios comerciales, garantizando seguridad jurídica en cada operación y ofreciendo soluciones a medida para particulares y empresas.</p>
-        </div>
-        <div class="area" onclick="toggleDescription('administrativo')">
-            <h3>Derecho Administrativo</h3>
-            <p id="administrativo" class="descripcion">Asesoramiento y defensa en procedimientos administrativos y gestión pública.
-Brindamos asesoramiento legal en contrataciones del sector público, procesos licitatorios, regulaciones administrativas y cumplimiento normativo. Acompañamos a empresas y organismos en la optimización de sus relaciones con la administración pública, garantizando el respeto a los marcos regulatorios vigentes.</p>
-        </div>
-        <div class="area" onclick="toggleDescription('penal')">
-            <h3>Derecho Penal</h3>
-            <p id="penal" class="descripcion">Brindamos una defensa estratégica y eficiente en todas las instancias del proceso penal, garantizando el cumplimiento de las garantías constitucionales y el derecho de defensa en juicio. Asesoramos y representamos a nuestros clientes en investigaciones penales, audiencias, juicios orales y recursos, con enfoque técnico y sólido.
+    <p><strong>Formación Continua:</strong></p>
+    <ul>
+      <li>Beca en Formación Política “Ser Líder” – Proyecto “La Legislatura un Espacio de Aprendizaje” (Gobierno de la Provincia de Formosa)</li>
+    </ul>
+  </section>
 
-Intervenimos en casos de delitos económicos, fraudes, estafas, delitos contra la administración pública, delitos contra la integridad física y la propiedad, asegurando un tratamiento especializado en cada situación. Nos ocupamos tanto de la defensa de los imputados como del acompañamiento de las víctimas en el ejercicio de sus derechos.</p>
-        </div>
-        <div class="area" onclick="toggleDescription('laboral')">
-            <h3>Derecho Laboral</h3>
-            <p id="laboral" class="descripcion">Brindamos asesoramiento y representación en despidos, indemnizaciones, accidentes laborales, reclamos salariales y condiciones de trabajo, asegurando que cada trabajador reciba lo que le corresponde según la normativa vigente</p>
-        </div>
-        <div class="area" onclick="toggleDescription('familia')">
-            <h3>Derecho de Familia</h3>
-            <p id="familia" class="descripcion">Soluciones en el ámbito familiar con sensibilidad y profesionalismo.
-Brindamos asesoramiento integral en divorcios, régimen de visitas, cuota alimentaria, filiación, adopciones y uniones convivenciales, garantizando un enfoque legal estratégico y humano. Priorizamos la resolución pacífica de los conflictos familiares, asegurando el bienestar de todas las partes involucradas. </p>
-        </div>
-    </section>
+  <section id="areas">
+    <h3>Áreas de Práctica</h3>
+    <ul>
+      <li>Derecho Civil</li>
+      <li>Derecho Penal</li>
+      <li>Derecho Administrativo</li>
+      <li>Derecho Laboral</li>
+      <li>Derecho de Familia</li>
+      <li>Derecho Constitucional</li>
+      <li>Derecho Sucesorio</li>
+      <li>Derecho Electoral</li>
+    </ul>
+  </section>
 
-    <section id="contacto">
-        <h2>CONTACTO</h2>
-        <p>📍 UBICACION (Google Maps - PROXIMAMENTE)</p>
-        <p>📞 <a href="tel:+3704574492">TELEFONO</a></p>
-        <p>💬 <a href="https://wa.me/3704574492" target="_blank">WhatsApp</a></p>
+  <section id="contacto">
+    <h3>Contacto</h3>
+    <p>📍 Ubicación (Google Maps - próximamente)</p>
+    <p>📞 <a href="tel:+3704574492" style="color:gold">Teléfono</a></p>
+    <p>💬 <a href="https://wa.me/3704574492" target="_blank" style="color:gold">WhatsApp</a></p>
 
-        <form id="contact-form">
-            <div class="mb-3">
-                <input type="text" class="form-control" id="name" name="from_name" placeholder="Tu nombre" required>
-            </div>
-            <div class="mb-3">
-                <input type="email" class="form-control" id="email" name="reply_to" placeholder="Tu correo electrónico" required>
-            </div>
-            <div class="mb-3">
-                <textarea class="form-control" id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-warning">Enviar</button>
-        </form>
-    </div>
-</section> <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-   <script>
-    // Inicializa EmailJS con tu Public Key
-    emailjs.init("l6w4TwHPPnmV4du7-"); // Reemplázalo si tu clave pública es distinta
+    <form id="contact-form">
+      <input type="text" id="name" name="from_name" placeholder="Tu nombre" required>
+      <input type="email" id="email" name="reply_to" placeholder="Tu correo electrónico" required>
+      <textarea id="message" name="message" rows="4" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
 
-    // Escucha el envío del formulario
+  <footer>
+    <p>© 2025 Estudio Jurídico Moreno & Asoc. Todos los derechos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("l6w4TwHPPnmV4du7-"); // Tu clave pública de EmailJS
+
     document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault(); // Evita que la página se recargue
+      event.preventDefault();
 
-        console.log("Formulario detectado, intentando enviar...");
-
-        // Envía el formulario a EmailJS usando el ID del servicio y la plantilla
-        emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
-            .then(function() {
-                alert("✅ Mensaje enviado con éxito.");
-            }, function(error) {
-                alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
-                console.error("Error:", error);
-            });
+      emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
+        .then(function() {
+          alert("✅ Mensaje enviado con éxito.");
+        }, function(error) {
+          alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
+          console.error("Error:", error);
+        });
     });
-</script>
-    
-    <footer>
-        <p>© 2025 Estudio Jurídico Moreno & Asoc. Todos los derechos reservados.</p>
-    </footer>
+  </script>
 
 </body>
 </html>
