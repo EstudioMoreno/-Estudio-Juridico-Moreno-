@@ -20,8 +20,29 @@
     header {
       background-color: #0A162F;
       text-align: center;
-      padding: 80px 20px 60px;
+      padding: 60px 20px 50px;
       border-bottom: 2px solid gold;
+    }
+
+    .justice-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      fill: gold;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.6rem;
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    header h2 {
+      font-size: 1.6rem;
+      color: #CCCCCC;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
     nav {
@@ -126,12 +147,11 @@
 <body>
 
   <header>
-    <h1 style="color: #FFFFFF; font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; margin: 0;">
-      Germán Daniel Moreno
-    </h1>
-    <h2 style="color: #CCCCCC; font-size: 1.4rem; font-weight: 300; margin-top: 10px;">
-      ABOGADO
-    </h2>
+    <!-- Ícono SVG de la balanza de la justicia -->
+    <svg class="justice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M320 32c13.3 0 24 10.7 24 24v24h88c13.3 0 24 10.7 24 24s-10.7 24-24 24H432v16c0 2.7-.4 5.3-1 7.8L511 251.4c3.6 7.1 5 14.8 5 22.6c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-7.8 1.5-15.5 5-22.6l80.1-150.6c-1.8-.2-3.6-.2-5.4-.2H400v16c0 13.3-10.7 24-24 24H352V480h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h72V160h-24c-13.3 0-24-10.7-24-24V120H144.3c-1.8 0-3.6 .1-5.4 .2L219 251.4c3.6 7.1 5 14.8 5 22.6c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-7.8 1.5-15.5 5-22.6L181 119.8c-.6-2.5-1-5.1-1-7.8V96H120c-13.3 0-24-10.7-24-24s10.7-24 24-24h88V56c0-13.3 10.7-24 24-24h88V56c0-13.3 10.7-24 24-24zm-184.6 231L120 134.4 88.6 263H135.4zM552 263l-31.4-128.6L488 263h63.9z"/></svg>
+
+    <h1>Germán Daniel Moreno</h1>
+    <h2>ABOGADO</h2>
   </header>
 
   <nav>
@@ -149,9 +169,228 @@
         • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos - Universidad de Bolonia, Italia<br>
         • ESPECIALIZACIÓN en Comunicación Política – Asociación Española de Escuela de Negocios</li>
       <li><strong>Formación Continua:</strong><br>
-        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial" - Universidad Nacional del Chaco Austral (UNCAUS)<br>
-        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” - Universidad Nacional del Nordeste (UNNE)<br>
-        • DIPLOMADO “Práctica Profesional y Judicial” - Universidad Nacional del Nordeste (UNNE)</li>
+        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial" - UNCAUS<br>
+        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” - UNNE<br>
+        • DIPLOMADO “Práctica Profesional y Judicial” - UNNE</li>
+    </ul>
+    <a href="cv.html" target="_blank" class="cv-link">→ Ver CV completo (más de 60 certificaciones)</a>
+  </section>
+
+  <section id="areas">
+    <h3>Áreas de Práctica</h3>
+    <ul>
+      <li>Derecho Civil</li>
+      <li>Derecho Penal</li>
+      <li>Derecho Administrativo</li>
+      <li>Derecho Laboral</li>
+      <li>Derecho de Familia</li>
+    </ul>
+  </section>
+
+  <section id="contacto">
+    <h3>Contacto</h3>
+    <form id="contact-form">
+      <input type="text" name="from_name" placeholder="Tu nombre" required />
+      <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
+      <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <footer>
+    © 2025 Consultora Moreno & Asoc. Todos los derechos reservados.
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("l6w4TwHPPnmV4du7-");
+    document.getElementById("contact-form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
+        .then(function() {
+          alert("✅ Mensaje enviado con éxito.");
+        }, function(error) {
+          alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
+          console.error("Error:", error);
+        });
+    });
+  </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Germán Daniel Moreno - Abogado</title>
+
+  <!-- Tipografías de lujo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0A162F;
+      color: #F5F5F5;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background-color: #0A162F;
+      text-align: center;
+      padding: 60px 20px 50px;
+      border-bottom: 2px solid gold;
+    }
+
+    .justice-icon {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 20px;
+      fill: gold;
+    }
+
+    header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.6rem;
+      color: #FFFFFF;
+      margin: 0;
+    }
+
+    header h2 {
+      font-size: 1.6rem;
+      color: #CCCCCC;
+      font-weight: 300;
+      margin-top: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 50px;
+      background-color: #101C33;
+      padding: 18px 0;
+      border-bottom: 1px solid gold;
+    }
+
+    nav a {
+      color: gold;
+      text-decoration: none;
+      font-weight: bold;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    section {
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: gold;
+      border-bottom: 1px solid gold;
+      padding-bottom: 8px;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      padding-left: 20px;
+      line-height: 1.8;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    a.cv-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: gold;
+      font-weight: bold;
+      border: 1px solid gold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a.cv-link:hover {
+      background-color: gold;
+      color: #0A162F;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: transparent;
+      color: gold;
+      border: 2px solid gold;
+      padding: 12px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+      border-radius: 5px;
+    }
+
+    form button:hover {
+      background-color: gold;
+      color: #0A162F;
+    }
+
+    footer {
+      text-align: center;
+      background-color: #0A162F;
+      color: #AAA;
+      padding: 40px 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid gold;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <!-- Ícono SVG de la balanza de la justicia -->
+    <svg class="justice-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><path d="M320 32c13.3 0 24 10.7 24 24v24h88c13.3 0 24 10.7 24 24s-10.7 24-24 24H432v16c0 2.7-.4 5.3-1 7.8L511 251.4c3.6 7.1 5 14.8 5 22.6c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-7.8 1.5-15.5 5-22.6l80.1-150.6c-1.8-.2-3.6-.2-5.4-.2H400v16c0 13.3-10.7 24-24 24H352V480h72c13.3 0 24 10.7 24 24s-10.7 24-24 24H216c-13.3 0-24-10.7-24-24s10.7-24 24-24h72V160h-24c-13.3 0-24-10.7-24-24V120H144.3c-1.8 0-3.6 .1-5.4 .2L219 251.4c3.6 7.1 5 14.8 5 22.6c0 35.3-28.7 64-64 64s-64-28.7-64-64c0-7.8 1.5-15.5 5-22.6L181 119.8c-.6-2.5-1-5.1-1-7.8V96H120c-13.3 0-24-10.7-24-24s10.7-24 24-24h88V56c0-13.3 10.7-24 24-24h88V56c0-13.3 10.7-24 24-24zm-184.6 231L120 134.4 88.6 263H135.4zM552 263l-31.4-128.6L488 263h63.9z"/></svg>
+
+    <h1>Germán Daniel Moreno</h1>
+    <h2>ABOGADO</h2>
+  </header>
+
+  <nav>
+    <a href="#formacion">Formación Académica</a>
+    <a href="#areas">Áreas de Práctica</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <section id="formacion">
+    <h3>Formación Académica</h3>
+    <ul>
+      <li><strong>Título de Grado:</strong><br>
+        • Egresado de ABOGACÍA en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata, a los 22 años de edad - 2025</li>
+      <li><strong>Estudios de Especialización:</strong><br>
+        • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos - Universidad de Bolonia, Italia<br>
+        • ESPECIALIZACIÓN en Comunicación Política – Asociación Española de Escuela de Negocios</li>
+      <li><strong>Formación Continua:</strong><br>
+        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial" - UNCAUS<br>
+        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” - UNNE<br>
+        • DIPLOMADO “Práctica Profesional y Judicial” - UNNE</li>
     </ul>
     <a href="cv.html" target="_blank" class="cv-link">→ Ver CV completo (más de 60 certificaciones)</a>
   </section>
