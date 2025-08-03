@@ -3,52 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>German Daniel Moreno - Abogado</title>
+  <title>Germán Daniel Moreno - Abogado</title>
 
-  <!-- Fuente elegante -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+  <!-- Tipografías de lujo -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
-
     body {
       margin: 0;
-      font-family: 'Playfair Display', serif;
-      background: #0A162F;
-      color: #F8F8F8;
-      line-height: 1.6;
+      font-family: 'Open Sans', sans-serif;
+      background-color: #0A162F;
+      color: #F5F5F5;
       scroll-behavior: smooth;
     }
 
     header {
-      background: #0A162F;
+      background-color: #0A162F;
       text-align: center;
-      padding: 80px 20px;
-      color: gold;
-      animation: fadeIn 2s ease;
+      padding: 80px 20px 60px;
+      border-bottom: 2px solid gold;
     }
 
     header h1 {
+      font-family: 'Cormorant Garamond', serif;
       font-size: 3.2rem;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 5px #d4af37;
+      color: gold;
+      margin: 0;
     }
 
     header h2 {
-      font-size: 1.5rem;
-      font-weight: normal;
-      color: #f0e68c;
+      font-size: 1.4rem;
+      color: #DDD;
+      font-weight: 300;
+      margin-top: 10px;
     }
 
     nav {
       display: flex;
       justify-content: center;
-      background-color: #101C33;
-      padding: 15px;
       gap: 50px;
-      border-top: 1px solid gold;
+      background-color: #101C33;
+      padding: 18px 0;
       border-bottom: 1px solid gold;
     }
 
@@ -56,94 +51,96 @@
       color: gold;
       text-decoration: none;
       font-weight: bold;
-      transition: 0.3s;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
     }
 
     nav a:hover {
-      text-shadow: 0 0 10px gold;
+      text-decoration: underline;
     }
 
     section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 50px 20px;
-      animation: fadeIn 2s ease;
+      max-width: 960px;
+      margin: 60px auto;
+      padding: 0 20px;
     }
 
     h3 {
-      color: gold;
+      font-family: 'Cormorant Garamond', serif;
       font-size: 2rem;
-      margin-bottom: 20px;
+      color: gold;
       border-bottom: 1px solid gold;
       padding-bottom: 8px;
+      margin-bottom: 25px;
     }
 
     ul {
-      padding-left: 25px;
+      padding-left: 20px;
+      line-height: 1.8;
     }
 
-    ul li {
-      margin-bottom: 15px;
+    li {
+      margin-bottom: 10px;
     }
 
-    form input, form textarea, form button {
+    a.cv-link {
+      display: inline-block;
+      margin-top: 20px;
+      color: gold;
+      font-weight: bold;
+      border: 1px solid gold;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a.cv-link:hover {
+      background-color: gold;
+      color: #0A162F;
+    }
+
+    form input,
+    form textarea {
       width: 100%;
-      padding: 12px;
+      padding: 14px;
       margin-bottom: 15px;
-      font-family: inherit;
+      font-family: 'Open Sans', sans-serif;
       font-size: 16px;
       border: 1px solid #ccc;
       border-radius: 5px;
     }
 
     form button {
-      background-color: gold;
-      color: #0A162F;
+      background-color: transparent;
+      color: gold;
+      border: 2px solid gold;
+      padding: 12px 20px;
       font-weight: bold;
       cursor: pointer;
       transition: 0.3s;
+      border-radius: 5px;
     }
 
     form button:hover {
-      background-color: #d4af37;
-    }
-
-    a.button-cv {
-      display: inline-block;
-      padding: 12px 20px;
-      background: gold;
+      background-color: gold;
       color: #0A162F;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 4px;
-      margin-top: 20px;
-      transition: 0.3s;
-    }
-
-    a.button-cv:hover {
-      background: #d4af37;
     }
 
     footer {
       text-align: center;
-      background: #0A162F;
+      background-color: #0A162F;
       color: #AAA;
-      padding: 40px 10px;
+      padding: 40px 20px;
       font-size: 0.9rem;
       border-top: 1px solid gold;
     }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
   </style>
 </head>
-
 <body>
 
   <header>
-    <h1>German Daniel Moreno</h1>
+    <h1>Germán Daniel Moreno</h1>
     <h2>ABOGADO</h2>
   </header>
 
@@ -165,7 +162,7 @@
       <li><strong>Estudios de Especialización:</strong><br>
         • Especialización en Comunicación Política – Asociación Española de Escuela de Negocios</li>
     </ul>
-    <a href="cv.html" target="_blank" class="button-cv">→ Ver CV completo (más de 60 certificaciones)</a>
+    <a href="cv.html" target="_blank" class="cv-link">→ Ver CV completo (más de 60 certificaciones)</a>
   </section>
 
   <section id="areas">
@@ -176,6 +173,7 @@
       <li>Derecho Administrativo</li>
       <li>Derecho Laboral</li>
       <li>Derecho de Familia</li>
+      <li>Derecho Constitucional</li>
     </ul>
   </section>
 
@@ -183,8 +181,8 @@
     <h3>Contacto</h3>
     <p>📍 Ubicación: Google Maps – próximamente</p>
     <p>📞 <a href="tel:+3704574492" style="color:gold">3704-574492</a></p>
+    <p>📧 <a href="mailto:germanmoreno884@gmail.com" style="color:gold">germanmoreno884@gmail.com</a></p>
     <p>💬 <a href="https://wa.me/3704574492" target="_blank" style="color:gold">WhatsApp</a></p>
-    <p>📧 <a href="mailto:Germanmoreno884@gmail.com" style="color:gold">Germanmoreno884@gmail.com</a></p>
 
     <form id="contact-form">
       <input type="text" name="from_name" placeholder="Tu nombre" required />
@@ -198,7 +196,6 @@
     © 2025 Consultora Moreno & Asoc. Todos los derechos reservados.
   </footer>
 
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     emailjs.init("l6w4TwHPPnmV4du7-");
