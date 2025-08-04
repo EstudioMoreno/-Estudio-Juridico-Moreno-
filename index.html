@@ -1,137 +1,66 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Germán Daniel Moreno - Abogado</title>
-
-  <!-- Tipografías de lujo -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV completo - Germán Daniel Moreno</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
-
   <style>
     body {
       margin: 0;
-      font-family: 'Open Sans', sans-serif;
       background-color: #0A162F;
       color: #F5F5F5;
-      scroll-behavior: smooth;
+      font-family: 'Open Sans', sans-serif;
     }
 
     header {
       background-color: #0A162F;
       text-align: center;
-      padding: 70px 20px 50px;
+      padding: 60px 20px 40px;
       border-bottom: 2px solid gold;
     }
 
     header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 3.6rem;
+      font-size: 3.2rem;
       color: #FFFFFF;
       margin: 0;
     }
 
-    header h2 {
-      font-size: 1.6rem;
-      color: #CCCCCC;
-      font-weight: 300;
-      margin-top: 10px;
-    }
-
-    nav {
+    .pdf-container {
       display: flex;
       justify-content: center;
-      gap: 50px;
-      background-color: #101C33;
-      padding: 18px 0;
-      border-bottom: 1px solid gold;
+      margin: 40px auto;
+      width: 90%;
+      height: 90vh;
     }
 
-    nav a {
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+    }
+
+    a.volver {
+      display: block;
+      text-align: center;
+      margin: 30px auto;
       color: gold;
       text-decoration: none;
       font-weight: bold;
-      letter-spacing: 1px;
       font-size: 1.1rem;
     }
 
-    nav a:hover {
+    a.volver:hover {
       text-decoration: underline;
-    }
-
-    section {
-      max-width: 960px;
-      margin: 60px auto;
-      padding: 0 20px;
-    }
-
-    h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: gold;
-      border-bottom: 1px solid gold;
-      padding-bottom: 8px;
-      margin-bottom: 25px;
-    }
-
-    ul {
-      padding-left: 20px;
-      line-height: 1.8;
-    }
-
-    li {
-      margin-bottom: 10px;
-    }
-
-    a.cv-link {
-      display: inline-block;
-      margin-top: 20px;
-      color: gold;
-      font-weight: bold;
-      border: 1px solid gold;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-    }
-
-    a.cv-link:hover {
-      background-color: gold;
-      color: #0A162F;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 15px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
-    }
-
-    form button {
-      background-color: transparent;
-      color: gold;
-      border: 2px solid gold;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      border-radius: 5px;
-    }
-
-    form button:hover {
-      background-color: gold;
-      color: #0A162F;
     }
 
     footer {
       text-align: center;
       background-color: #0A162F;
       color: #AAA;
-      padding: 40px 20px;
+      padding: 30px 20px;
       font-size: 0.9rem;
       border-top: 1px solid gold;
     }
@@ -140,72 +69,18 @@
 <body>
 
   <header>
-    <h1>Germán Daniel Moreno</h1>
-    <h2>ABOGADO</h2>
+    <h1>Currículum Vitae</h1>
   </header>
 
-  <nav>
-    <a href="#formacion">Formación Académica</a>
-    <a href="#areas">Áreas de Práctica</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
+  <div class="pdf-container">
+    <iframe src="CV-PDF.pdf#toolbar=0" type="application/pdf"></iframe>
+  </div>
 
-  <section id="formacion">
-    <h3>Formación Académica</h3>
-    <ul>
-      <li><strong>Título de Grado:</strong><br>
-        • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025), a los 22 años de edad.</li>
-      <li><strong>Estudios de Especialización:</strong><br>
-        • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos - Universidad de Bolonia, Italia.<br>
-        • ESPECIALIZACIÓN en Comunicación Política – Asociación Española de Escuela de Negocios.</li>
-      <li><strong>Formación Continua:</strong><br>
-        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial" - UNCAUS.<br>
-        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” - UNNE.<br>
-        • DIPLOMADO “Práctica Profesional y Judicial” - UNNE.</li>
-    </ul>
-    <a href="cv.html" target="_blank" class="cv-link">→ Ver CV completo (más de 60 certificaciones)</a>
-  </section>
-
-  <section id="areas">
-    <h3>Áreas de Práctica</h3>
-    <ul>
-      <li>Derecho Civil</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Administrativo</li>
-      <li>Derecho Laboral</li>
-      <li>Derecho de Familia</li>
-      <li>Derecho Electoral</li>
-    </ul>
-  </section>
-
-  <section id="contacto">
-    <h3>Contacto</h3>
-    <form id="contact-form">
-      <input type="text" name="from_name" placeholder="Tu nombre" required />
-      <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
-      <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
+  <a class="volver" href="index.html">← Volver al sitio principal</a>
 
   <footer>
     © 2025 Consultora Moreno & Asoc. Todos los derechos reservados.
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("l6w4TwHPPnmV4du7-");
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
-      event.preventDefault();
-      emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
-        .then(function() {
-          alert("✅ Mensaje enviado con éxito.");
-        }, function(error) {
-          alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
-          console.error("Error:", error);
-        });
-    });
-  </script>
 
 </body>
 </html>
