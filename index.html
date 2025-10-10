@@ -6,7 +6,6 @@
   <title>Germán Moreno - Abogado</title>
   <meta name="description" content="Estudio jurídico de Germán Moreno. Derecho civil, penal, administrativo, laboral, familia y electoral. Atención profesional y confiable.">
 
-  <!-- Tipografías cuerpo/serif -->
   <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
 
@@ -33,7 +32,7 @@
       scroll-behavior:smooth;
     }
 
-    /* ===== HEADER ===== */
+    /* HEADER con iluminación tipo óleo */
     header{
       position:relative;
       text-align:center;
@@ -45,56 +44,39 @@
       overflow:hidden;
     }
 
-    /* Luz difusa tipo óleo (muy tenue) */
-    .header-glow{
+    /* Capa de luz difusa tipo óleo */
+    header::after{
       content:"";
       position:absolute; inset:0;
       background:
         radial-gradient(620px 260px at 52% 30%, rgba(255,223,170,.04), transparent 60%),
         radial-gradient(420px 220px at 38% 42%, rgba(120,80,20,.05), transparent 60%);
       z-index:0;
-      pointer-events:none;
     }
 
-    /* ===== MONOGRAMA GDM — Institucional + moderno ===== */
-    .monograma{
+    /* MONOGRAMA ÓLEO SUAVE */
+    header::before{
+      content:"GM";
       position:absolute;
       top:50%; left:50%;
-      transform:translate(-50%, -48%);
-      width: 48rem; height: 18rem; /* caja de composición */
-      z-index:1;
-      pointer-events:none; user-select:none;
-    }
-    .monograma span{
-      position:absolute;
+      transform:translate(-50%, -50%);
       font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-size:17rem;
       font-weight:700;
-      line-height:1;
-    }
-    /* Tamaños base */
-    .monograma .g,
-    .monograma .m,
-    .monograma .d{ font-size:17rem; letter-spacing:-2px; }
-
-    /* G y M: marca de agua limpia (blanco 5%) */
-    .monograma .g{ color:rgba(255,255,255,.05); left: 3rem;  top:0.2rem; z-index:1; }
-    .monograma .m{ color:rgba(255,255,255,.05); right:3rem; top:0.2rem; z-index:1; }
-
-    /* D central: bronce mate muy sutil (autoridad/estabilidad) */
-    .monograma .d{
-      left:50%; top:0;
-      transform:translateX(-50%);
       background: linear-gradient(180deg, #c9a43a 0%, #a07b2f 55%, #6b5220 100%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
       text-shadow:
         0 1px 0 rgba(255,255,255,.03),
         0 10px 24px rgba(0,0,0,.55);
-      opacity:.08;
-      z-index:2;
+      opacity: .08;
+      letter-spacing:-4px;
+      user-select:none;
+      pointer-events:none;
+      z-index:1;
     }
 
-    /* ===== Marca (nombre + cargo) ===== */
+    /* Nombre y subtítulo */
     header h1{
       font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
       font-weight:700;
@@ -103,8 +85,9 @@
       letter-spacing:.02em;
       margin:0 0 10px;
       position:relative;
-      z-index:3;
+      z-index:2;
     }
+
     header h2{
       font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
       font-weight:600;
@@ -114,10 +97,10 @@
       color:var(--muted);
       margin:0;
       position:relative;
-      z-index:3;
+      z-index:2;
     }
 
-    /* ===== NAV ===== */
+    /* NAV */
     nav{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(130%) blur(6px);
@@ -143,7 +126,7 @@
     nav a:hover::after, nav a:focus-visible::after{ width:100% }
     nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
 
-    /* ===== SECCIONES ===== */
+    /* SECCIONES */
     section{ max-width:1040px; margin:68px auto; padding:0 20px; }
     .card{
       background:linear-gradient(180deg, var(--bg-alt), var(--bg));
@@ -241,35 +224,14 @@
       background:var(--bg);
     }
 
-    /* Responsivo */
-    @media (max-width:700px){
-      .monograma{ width:36rem; height:14rem; }
-      .monograma .g,.monograma .m,.monograma .d{ font-size:13.5rem; }
-      .monograma .g{ left:1.8rem; top:.3rem; }
-      .monograma .m{ right:1.8rem; top:.3rem; }
-    }
     @media (max-width:420px){
-      .monograma{ width:30rem; height:12rem; transform:translate(-50%,-46%); }
-      .monograma .g,.monograma .m,.monograma .d{ font-size:11.5rem; }
-      .monograma .g{ left:1.2rem; }
-      .monograma .m{ right:1.2rem; }
+      header::before{ font-size:15rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <!-- luz difusa -->
-    <div class="header-glow" aria-hidden="true"></div>
-
-    <!-- MONOGRAMA GDM -->
-    <div class="monograma" aria-hidden="true">
-      <span class="g">G</span>
-      <span class="d">D</span>
-      <span class="m">M</span>
-    </div>
-
-    <!-- Marca -->
     <h1>Germán Moreno</h1>
     <h2>Abogado</h2>
   </header>
@@ -323,7 +285,6 @@
     © 2025. Todos los derechos reservados.
   </footer>
 
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     emailjs.init("l6w4TwHPPnmV4du7-");
