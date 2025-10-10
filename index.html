@@ -4,136 +4,198 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Germán Moreno - Abogado</title>
+  <meta name="description" content="Estudio jurídico de Germán Moreno. Derecho civil, penal, administrativo, laboral, familia y electoral. Atención personalizada." />
 
-  <!-- Tipografías de lujo -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans&display=swap" rel="stylesheet">
+  <!-- Tipografías -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      margin: 0;
-      font-family: 'Open Sans', sans-serif;
-      background-color: #0A162F;
-      color: #F5F5F5;
-      scroll-behavior: smooth;
+    :root{
+      --bg:#000000;           /* negro absoluto */
+      --bg-alt:#0b0b0b;       /* negro sutil para bloques */
+      --text:#e9e9e9;         /* blanco suave */
+      --muted:#bdbdbd;        /* gris lujo */
+      --gold:#d4af37;         /* dorado viejo */
+      --line:rgba(212,175,55,.35);
+      --radius:12px;
+      --shadow:0 0 0 1px var(--line), 0 8px 24px rgba(0,0,0,.6);
     }
 
-    header {
-      background-color: #0A162F;
-      text-align: center;
-      padding: 70px 20px 50px;
-      border-bottom: 2px solid gold;
+    *{box-sizing:border-box;}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Open Sans',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      scroll-behavior:smooth;
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
     }
 
-    header h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 4rem;
-      color: white;
-      margin: 0;
+    /* Header / Hero */
+    header{
+      text-align:center;
+      padding:96px 20px 72px;
+      border-bottom:1px solid var(--line);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(212,175,55,.06), transparent 60%),
+        var(--bg);
+    }
+    header h1{
+      font-family:'Cormorant Garamond',serif;
+      font-weight:700;
+      font-size:clamp(2.6rem,5vw,4.2rem);
+      letter-spacing:.03em;
+      margin:0;
+      color:#fff;
+    }
+    header h2{
+      margin:.6rem 0 0;
+      font-weight:600;
+      font-size:clamp(1.1rem,2.4vw,1.4rem);
+      letter-spacing:.22em;
+      color:var(--muted);
     }
 
-    header h2 {
-      font-size: 2rem;
-      color: #DDDDDD;
-      font-weight: 400;
-      margin-top: 10px;
+    /* Nav */
+    nav{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(160%) blur(6px);
+      background:rgba(0,0,0,.65);
+      border-bottom:1px solid var(--line);
+      display:flex; justify-content:center; gap:42px;
+      padding:14px 16px;
     }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 50px;
-      background-color: #101C33;
-      padding: 18px 0;
-      border-bottom: 1px solid gold;
+    nav a{
+      color:var(--gold);
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.08em;
+      font-size:0.95rem;
+      padding:8px 2px;
+      position:relative;
+      outline: none;
     }
-
-    nav a {
-      color: gold;
-      text-decoration: none;
-      font-weight: bold;
-      letter-spacing: 1px;
-      font-size: 1.1rem;
+    nav a::after{
+      content:""; position:absolute; left:0; bottom:-4px;
+      width:0; height:1px; background:var(--gold);
+      transition:width .25s ease;
     }
+    nav a:hover::after, nav a:focus-visible::after{ width:100%; }
+    nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    section {
-      max-width: 960px;
-      margin: 60px auto;
+    /* Layout secciones */
+    section{
+      max-width: 1040px;
+      margin: 64px auto;
       padding: 0 20px;
     }
 
-    h3 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 2rem;
-      color: gold;
-      border-bottom: 1px solid gold;
-      padding-bottom: 8px;
-      margin-bottom: 25px;
+    .card{
+      background:linear-gradient(180deg, var(--bg-alt), var(--bg));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:28px;
     }
 
-    ul {
-      padding-left: 20px;
-      line-height: 1.8;
+    h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size: clamp(1.6rem, 2.6vw, 2rem);
+      color:var(--gold);
+      letter-spacing:.06em;
+      margin:0 0 18px;
+      padding-bottom:10px;
+      border-bottom:1px solid var(--line);
     }
 
-    li {
-      margin-bottom: 10px;
+    ul{ padding-left: 20px; margin:0; }
+    li{ margin-bottom:10px; }
+
+    .cv-link{
+      display:inline-block;
+      margin-top:22px;
+      color:var(--gold);
+      font-weight:700;
+      text-decoration:none;
+      border:1px solid var(--gold);
+      padding:12px 22px;
+      border-radius:999px;
+      transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
+      box-shadow:0 0 0 0 rgba(212,175,55,.2);
+    }
+    .cv-link:hover{
+      background:var(--gold);
+      color:#000;
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(212,175,55,.18);
+    }
+    .cv-link:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
+
+    /* Listado de áreas en dos columnas grandes si hay espacio */
+    .areas{
+      display:grid;
+      grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) );
+      gap:10px 24px;
+      padding-left:0;
+      list-style:none;
+    }
+    .areas li{
+      padding:10px 0;
+      border-bottom:1px dashed var(--line);
     }
 
-    a.cv-link {
-      display: inline-block;
-      margin-top: 20px;
-      color: gold;
-      font-weight: bold;
-      border: 1px solid gold;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease;
+    /* Formulario */
+    form{
+      display:block;
+      margin-top:8px;
     }
-
-    a.cv-link:hover {
-      background-color: gold;
-      color: #0A162F;
+    form input, form textarea{
+      width:100%;
+      background:#0a0a0a;
+      color:var(--text);
+      padding:14px 14px;
+      margin-bottom:14px;
+      font: 16px 'Open Sans', sans-serif;
+      border:1px solid #1d1d1d;
+      border-radius:10px;
+      transition:border-color .2s ease, box-shadow .2s ease;
     }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 14px;
-      margin-bottom: 15px;
-      font-family: 'Open Sans', sans-serif;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    form input::placeholder, form textarea::placeholder{ color:#7c7c7c; }
+    form input:focus, form textarea:focus{
+      outline:none;
+      border-color:var(--gold);
+      box-shadow:0 0 0 3px rgba(212,175,55,.18);
     }
-
-    form button {
-      background-color: transparent;
-      color: gold;
-      border: 2px solid gold;
-      padding: 12px 20px;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-      border-radius: 5px;
+    form button{
+      background:transparent;
+      color:var(--gold);
+      border:1.5px solid var(--gold);
+      padding:12px 22px;
+      font-weight:700;
+      letter-spacing:.04em;
+      cursor:pointer;
+      border-radius:999px;
+      transition:transform .2s ease, background .2s ease, color .2s ease, box-shadow .2s ease;
     }
-
-    form button:hover {
-      background-color: gold;
-      color: #0A162F;
+    form button:hover{
+      background:var(--gold);
+      color:#000;
+      transform:translateY(-1px);
+      box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
+    form button:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
 
-    footer {
-      text-align: center;
-      background-color: #0A162F;
-      color: #AAA;
-      padding: 40px 20px;
-      font-size: 0.9rem;
-      border-top: 1px solid gold;
+    /* Footer */
+    footer{
+      text-align:center;
+      color:#9c9c9c;
+      padding:48px 20px 56px;
+      font-size:.95rem;
+      border-top:1px solid var(--line);
+      background:var(--bg);
     }
   </style>
 </head>
@@ -150,25 +212,25 @@
     <a href="#contacto">Contacto</a>
   </nav>
 
-  <section id="formacion">
+  <section id="formacion" class="card">
     <h3>Formación Académica</h3>
     <ul>
       <li><strong>Título de Grado:</strong><br>
         • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025), a los 22 años de edad.</li>
       <li><strong>Estudios de Especialización:</strong><br>
-        • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos - Universidad de Bolonia, Italia.<br>
-        • ESPECIALIZACIÓN en Comunicación Política – Asociación Española de Escuela de Negocios.</li>
+        • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos — Universidad de Bolonia, Italia.<br>
+        • ESPECIALIZACIÓN en Comunicación Política — Asociación Española de Escuela de Negocios.</li>
       <li><strong>Formación Continua:</strong><br>
-        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial" - UNCAUS.<br>
-        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” - UNNE.<br>
-        • DIPLOMADO “Práctica Profesional y Judicial” - UNNE.</li>
+        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial” — UNCAUS.<br>
+        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” — UNNE.<br>
+        • DIPLOMADO “Práctica Profesional y Judicial” — UNNE.</li>
     </ul>
-    <a href="cv.pdf" target="_blank" class="cv-link">📄 VER CV COMPLETO</a>
+    <a href="cv.pdf" target="_blank" class="cv-link" rel="noopener">📄 VER CV COMPLETO</a>
   </section>
 
-  <section id="areas">
+  <section id="areas" class="card">
     <h3>Áreas de Práctica</h3>
-    <ul>
+    <ul class="areas">
       <li>Derecho Civil</li>
       <li>Derecho Penal</li>
       <li>Derecho Administrativo</li>
@@ -178,30 +240,36 @@
     </ul>
   </section>
 
-  <section id="contacto">
+  <section id="contacto" class="card">
     <h3>Contacto</h3>
-    <form id="contact-form">
-      <input type="text" name="from_name" placeholder="Tu nombre" required />
-      <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
+    <form id="contact-form" aria-label="Formulario de contacto">
+      <input type="text" name="from_name" placeholder="Tu nombre" autocomplete="name" required />
+      <input type="email" name="reply_to" placeholder="Tu correo electrónico" autocomplete="email" required />
       <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
       <button type="submit">Enviar</button>
     </form>
+    <p id="form-status" role="status" aria-live="polite" style="margin-top:10px;color:var(--muted);"></p>
   </section>
 
   <footer>
     © 2025. Todos los derechos reservados.
   </footer>
 
+  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     emailjs.init("l6w4TwHPPnmV4du7-");
-    document.getElementById("contact-form").addEventListener("submit", function(event) {
+    const form = document.getElementById("contact-form");
+    const statusEl = document.getElementById("form-status");
+    form.addEventListener("submit", function(event) {
       event.preventDefault();
+      statusEl.textContent = "Enviando…";
       emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
         .then(function() {
-          alert("✅ Mensaje enviado con éxito.");
+          statusEl.textContent = "✅ Mensaje enviado con éxito.";
+          form.reset();
         }, function(error) {
-          alert("❌ Error al enviar el mensaje. Intenta nuevamente.");
+          statusEl.textContent = "❌ Error al enviar. Intenta nuevamente.";
           console.error("Error:", error);
         });
     });
