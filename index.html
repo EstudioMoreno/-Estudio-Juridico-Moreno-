@@ -1,302 +1,46 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Germán Moreno - Abogado</title>
-  <meta name="description" content="Estudio jurídico de Germán Moreno. Derecho civil, penal, administrativo, laboral, familia y electoral. Atención profesional y confiable.">
+/* HEADER con iluminación tipo óleo muy sutil */
+header{
+  position:relative;
+  text-align:center;
+  padding:128px 20px 96px;
+  border-bottom:1px solid var(--line);
+  background:
+    radial-gradient(900px 480px at 50% 14%, rgba(212,175,55,0.05), transparent 70%),
+    var(--bg);
+  overflow:hidden;
+}
 
-  <!-- Cuerpo legible -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Fallback moderno para serif si no existe 'ui-serif/New York/Georgia/Times' -->
-  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
+/* Capa de “baño de luz” difuso detrás del monograma */
+header::after{
+  content:"";
+  position:absolute; inset:0;
+  background:
+    radial-gradient(620px 260px at 52% 30%, rgba(255,223,170,.04), transparent 60%),
+    radial-gradient(420px 220px at 38% 42%, rgba(120,80,20,.05), transparent 60%);
+  z-index:0; /* por debajo del monograma */
+}
 
-  <style>
-    :root{
-      --bg:#000;
-      --bg-alt:#0b0b0b;
-      --text:#e6e6e6;
-      --muted:#b7b7b7;
-      --gold:#d4af37;
-      --line:rgba(212,175,55,.28);
-      --radius:12px;
-      --shadow:0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.65);
-    }
+/* MONOGRAMA “óleo suave” (pátina + relieve muy discreto) */
+header::before{
+  content:"GM";
+  position:absolute;
+  top:50%; left:50%;
+  transform:translate(-50%, -50%);
+  font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+  font-size:17rem; font-weight:700;
+  /* bronce apagado con ligera pátina */
+  background: linear-gradient(180deg, #c9a43a 0%, #a07b2f 55%, #6b5220 100%);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  /* relieve sutil sin parecer “gaming” */
+  text-shadow:
+    0 1px 0 rgba(255,255,255,.03),      /* micro-bisel claro */
+    0 10px 24px rgba(0,0,0,.55);        /* profundidad */
+  opacity: .08;                          /* menos vistoso que antes */
+  letter-spacing:-4px;
+  user-select:none; pointer-events:none;
+  z-index:1; /* por encima del glow, debajo del texto */
+}
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:var(--bg);
-      color:var(--text);
-      line-height:1.6;
-      scroll-behavior:smooth;
-    }
-
-    /* HEADER sobrio */
-    header{
-      position:relative;
-      text-align:center;
-      padding:128px 20px 96px;
-      border-bottom:1px solid var(--line);
-      background:
-        radial-gradient(900px 500px at 50% 10%, rgba(212,175,55,0.06), transparent 70%),
-        var(--bg);
-      overflow:hidden;
-    }
-
-    /* Monograma MINIMAL (sin brillos ni textura) */
-    header::before{
-      content:"GM";
-      position:absolute;
-      top:50%;
-      left:50%;
-      transform:translate(-50%, -50%);
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
-      font-size:17rem;
-      font-weight:700;
-      color:rgba(255,255,255,0.05); /* blanco 5% */
-      letter-spacing:-4px;
-      user-select:none;
-      pointer-events:none;
-      z-index:0;
-    }
-
-    /* Nombre con la fuente “de iPhone” (ui-serif/Georgia/Times) */
-    .brand-serif{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
-    }
-
-    header h1{
-      composes: brand-serif;
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
-      font-weight:700;
-      font-size:clamp(2.8rem, 7vw, 4.6rem);
-      color:#fff;
-      letter-spacing:.02em;
-      margin:0 0 10px;
-      position:relative;
-      z-index:1;
-    }
-
-    header h2{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
-      font-weight:600;
-      font-variant:small-caps;
-      letter-spacing:.22em;
-      font-size:clamp(1.02rem, 2.4vw, 1.28rem);
-      color:var(--muted);
-      margin:0;
-      position:relative;
-      z-index:1;
-    }
-
-    /* NAV */
-    nav{
-      position:sticky; top:0; z-index:10;
-      backdrop-filter:saturate(130%) blur(6px);
-      background:rgba(0,0,0,.72);
-      border-bottom:1px solid var(--line);
-      display:flex; justify-content:center; gap:34px;
-      padding:12px 16px;
-    }
-    nav a{
-      color:var(--gold);
-      text-decoration:none;
-      font-weight:600;
-      letter-spacing:.05em;
-      font-size:.98rem;
-      position:relative;
-      outline:none;
-    }
-    nav a::after{
-      content:""; position:absolute; left:0; bottom:-5px;
-      width:0; height:1px; background:var(--gold);
-      transition:width .2s ease;
-    }
-    nav a:hover::after, nav a:focus-visible::after{ width:100% }
-    nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
-
-    /* SECCIONES */
-    section{ max-width:1040px; margin:68px auto; padding:0 20px; }
-    .card{
-      background:linear-gradient(180deg, var(--bg-alt), var(--bg));
-      border:1px solid var(--line);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      padding:26px;
-    }
-
-    h3{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
-      font-weight:700;
-      font-size:clamp(1.45rem,2.3vw,1.9rem);
-      color:var(--gold);
-      letter-spacing:.03em;
-      margin:0 0 16px;
-      padding-bottom:10px;
-      border-bottom:1px solid var(--line);
-    }
-
-    ul{ padding-left:20px; margin:0; }
-    li{ margin-bottom:10px; }
-
-    .cv-link{
-      display:inline-block;
-      margin-top:18px;
-      color:var(--gold);
-      font-weight:700;
-      text-decoration:none;
-      border:1px solid var(--gold);
-      padding:12px 22px;
-      border-radius:999px;
-      transition:background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
-    }
-    .cv-link:hover{
-      background:var(--gold);
-      color:#000;
-      transform:translateY(-1px);
-      box-shadow:0 10px 24px rgba(212,175,55,.18);
-    }
-
-    .areas{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:8px 24px;
-      list-style:none;
-      padding-left:0;
-    }
-    .areas li{
-      padding:10px 0;
-      border-bottom:1px dashed var(--line);
-    }
-
-    form input, form textarea{
-      width:100%;
-      background:#0a0a0a;
-      color:var(--text);
-      padding:14px;
-      margin-bottom:14px;
-      border:1px solid #1d1d1d;
-      border-radius:10px;
-      font-size:16px;
-      transition:border-color .2s ease, box-shadow .2s ease;
-    }
-    form input::placeholder, form textarea::placeholder{ color:#7c7c7c; }
-    form input:focus, form textarea:focus{
-      outline:none;
-      border-color:var(--gold);
-      box-shadow:0 0 0 3px rgba(212,175,55,.18);
-    }
-    form button{
-      background:transparent;
-      color:var(--gold);
-      border:1.5px solid var(--gold);
-      padding:12px 22px;
-      font-weight:700;
-      letter-spacing:.02em;
-      cursor:pointer;
-      border-radius:999px;
-      transition:background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
-    }
-    form button:hover{
-      background:var(--gold);
-      color:#000;
-      transform:translateY(-1px);
-      box-shadow:0 10px 24px rgba(212,175,55,.18);
-    }
-
-    footer{
-      text-align:center;
-      color:#9c9c9c;
-      padding:46px 20px 54px;
-      font-size:.95rem;
-      border-top:1px solid var(--line);
-      background:var(--bg);
-    }
-
-    /* Pequeño ajuste de títulos en móviles para evitar “salto medieval” */
-    @media (max-width:420px){
-      header h1{ letter-spacing:.01em; }
-      header::before{ font-size:15rem; }
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1 class="brand-serif">Germán Moreno</h1>
-    <h2 class="brand-serif">Abogado</h2>
-  </header>
-
-  <nav>
-    <a href="#formacion">Formación Académica</a>
-    <a href="#areas">Áreas de Práctica</a>
-    <a href="#contacto">Contacto</a>
-  </nav>
-
-  <section id="formacion" class="card">
-    <h3 class="brand-serif">Formación Académica</h3>
-    <ul>
-      <li><strong>Título de Grado:</strong><br>
-        • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025), a los 22 años de edad.</li>
-      <li><strong>Estudios de Especialización:</strong><br>
-        • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos — Universidad de Bolonia, Italia.<br>
-        • ESPECIALIZACIÓN en Comunicación Política — Asociación Española de Escuela de Negocios.</li>
-      <li><strong>Formación Continua:</strong><br>
-        • DIPLOMADO “Prácticas de Litigación en el Sistema Acusatorio Adversarial” — UNCAUS.<br>
-        • DIPLOMADO “Actualización en el Sistema de Protección Integral de los Derechos de Niñas, Niños y Adolescentes” — UNNE.<br>
-        • DIPLOMADO “Práctica Profesional y Judicial” — UNNE.</li>
-    </ul>
-    <a href="cv.pdf" target="_blank" class="cv-link" rel="noopener">📄 VER CV COMPLETO</a>
-  </section>
-
-  <section id="areas" class="card">
-    <h3 class="brand-serif">Áreas de Práctica</h3>
-    <ul class="areas">
-      <li>Derecho Civil</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Administrativo</li>
-      <li>Derecho Laboral</li>
-      <li>Derecho de Familia</li>
-      <li>Derecho Electoral</li>
-    </ul>
-  </section>
-
-  <section id="contacto" class="card">
-    <h3 class="brand-serif">Contacto</h3>
-    <form id="contact-form" aria-label="Formulario de contacto">
-      <input type="text" name="from_name" placeholder="Tu nombre" required />
-      <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
-      <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    <p id="form-status" role="status" aria-live="polite" style="margin-top:10px;color:var(--muted);"></p>
-  </section>
-
-  <footer>
-    © 2025. Todos los derechos reservados.
-  </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
-  <script>
-    emailjs.init("l6w4TwHPPnmV4du7-");
-    const form = document.getElementById("contact-form");
-    const statusEl = document.getElementById("form-status");
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      statusEl.textContent = "Enviando…";
-      emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
-        .then(function() {
-          statusEl.textContent = "✅ Mensaje enviado con éxito.";
-          form.reset();
-        }, function(error) {
-          statusEl.textContent = "❌ Error al enviar. Intenta nuevamente.";
-          console.error("Error:", error);
-        });
-    });
-  </script>
-
-</body>
-</html>
+/* Asegura que el nombre y subtítulo queden arriba de todo */
+header h1, header h2 { position:relative; z-index:2; }
