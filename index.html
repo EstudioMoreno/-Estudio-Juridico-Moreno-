@@ -6,7 +6,7 @@
   <title>Germán Moreno - Abogado</title>
   <meta name="description" content="Estudio jurídico de Germán Moreno. Derecho civil, penal, administrativo, laboral, familia y electoral. Atención profesional y confiable.">
 
-  <!-- Tipografías: Cinzel (títulos elegantes), Source Sans 3 (texto legible) -->
+  <!-- Tipografías: Cinzel (para títulos) y Source Sans 3 (para texto) -->
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -15,8 +15,8 @@
       --bg-alt:#0b0b0b;
       --text:#e6e6e6;
       --muted:#b7b7b7;
-      --gold:#d4af37;                 /* dorado viejo */
-      --line:rgba(212,175,55,.32);    /* línea sutil dorada */
+      --gold:#d4af37;
+      --line:rgba(212,175,55,.32);
       --radius:12px;
       --shadow:0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.65);
     }
@@ -34,21 +34,43 @@
       -moz-osx-font-smoothing:grayscale;
     }
 
-    /* HEADER serio, sin efectos */
+    /* HEADER */
     header{
+      position:relative;
       text-align:center;
-      padding:110px 20px 80px;
+      padding:120px 20px 90px;
       border-bottom:1px solid var(--line);
       background:var(--bg);
+      overflow:hidden;
     }
+
+    /* Monograma GM */
+    header::before{
+      content:"GM";
+      position:absolute;
+      top:50%;
+      left:50%;
+      transform:translate(-50%, -50%);
+      font-family:'Cinzel', serif;
+      font-size:16rem;
+      font-weight:700;
+      color:rgba(212,175,55,0.05);
+      letter-spacing:-10px;
+      user-select:none;
+      pointer-events:none;
+    }
+
     header h1{
       font-family:'Cinzel', serif;
       font-weight:700;
       font-size:clamp(3rem, 7vw, 5rem);
       letter-spacing:.02em;
       color:#fff;
-      margin:0 0 10px 0;
+      margin:0 0 12px 0;
+      position:relative;
+      z-index:1;
     }
+
     header h2{
       font-family:'Cinzel', serif;
       font-weight:600;
@@ -57,9 +79,11 @@
       font-size:clamp(1.05rem, 2.5vw, 1.35rem);
       color:var(--muted);
       margin:0;
+      position:relative;
+      z-index:1;
     }
 
-    /* NAV minimalista */
+    /* NAV */
     nav{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(130%) blur(6px);
@@ -74,7 +98,6 @@
       font-weight:600;
       letter-spacing:.06em;
       font-size:.98rem;
-      padding:6px 2px;
       position:relative;
       outline:none;
     }
@@ -86,7 +109,7 @@
     nav a:hover::after, nav a:focus-visible::after{ width:100% }
     nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
 
-    /* Secciones / tarjetas sobrias */
+    /* SECCIONES */
     section{ max-width:1040px; margin:70px auto; padding:0 20px; }
     .card{
       background:linear-gradient(180deg, var(--bg-alt), var(--bg));
@@ -110,7 +133,6 @@
     ul{ padding-left:20px; margin:0; }
     li{ margin-bottom:10px; }
 
-    /* Botón CV */
     .cv-link{
       display:inline-block;
       margin-top:20px;
@@ -128,12 +150,10 @@
       transform:translateY(-1px);
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
-    .cv-link:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
 
-    /* Áreas en grilla sobria */
     .areas{
       display:grid;
-      grid-template-columns: repeat( auto-fit, minmax(240px, 1fr) );
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
       gap:8px 24px;
       list-style:none;
       padding-left:0;
@@ -143,8 +163,6 @@
       border-bottom:1px dashed var(--line);
     }
 
-    /* Formulario */
-    form{ margin-top:8px; }
     form input, form textarea{
       width:100%;
       background:#0a0a0a;
@@ -156,7 +174,6 @@
       font-size:16px;
       transition:border-color .2s ease, box-shadow .2s ease;
     }
-    form input::placeholder, form textarea::placeholder{ color:#7c7c7c; }
     form input:focus, form textarea:focus{
       outline:none;
       border-color:var(--gold);
@@ -179,9 +196,7 @@
       transform:translateY(-1px);
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
-    form button:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; }
 
-    /* Footer */
     footer{
       text-align:center;
       color:#9c9c9c;
@@ -236,8 +251,8 @@
   <section id="contacto" class="card">
     <h3>Contacto</h3>
     <form id="contact-form" aria-label="Formulario de contacto">
-      <input type="text" name="from_name" placeholder="Tu nombre" autocomplete="name" required />
-      <input type="email" name="reply_to" placeholder="Tu correo electrónico" autocomplete="email" required />
+      <input type="text" name="from_name" placeholder="Tu nombre" required />
+      <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
       <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
       <button type="submit">Enviar</button>
     </form>
@@ -248,7 +263,6 @@
     © 2025. Todos los derechos reservados.
   </footer>
 
-  <!-- EmailJS -->
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
     emailjs.init("l6w4TwHPPnmV4du7-");
