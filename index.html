@@ -6,8 +6,10 @@
   <title>Germán Moreno - Abogado</title>
   <meta name="description" content="Estudio jurídico de Germán Moreno. Derecho civil, penal, administrativo, laboral, familia y electoral. Atención profesional y confiable.">
 
-  <!-- Tipografía principal: Playfair Display -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Cuerpo legible -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+  <!-- Fallback moderno para serif si no existe 'ui-serif/New York/Georgia/Times' -->
+  <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -16,7 +18,7 @@
       --text:#e6e6e6;
       --muted:#b7b7b7;
       --gold:#d4af37;
-      --line:rgba(212,175,55,.32);
+      --line:rgba(212,175,55,.28);
       --radius:12px;
       --shadow:0 0 0 1px var(--line), 0 10px 28px rgba(0,0,0,.65);
     }
@@ -25,63 +27,65 @@
     html,body{height:100%}
     body{
       margin:0;
-      font-family:'Source Sans 3', sans-serif;
+      font-family:'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.6;
       scroll-behavior:smooth;
     }
 
-    /* HEADER */
+    /* HEADER sobrio */
     header{
       position:relative;
       text-align:center;
-      padding:130px 20px 100px;
+      padding:128px 20px 96px;
       border-bottom:1px solid var(--line);
       background:
-        radial-gradient(900px 500px at 50% 10%, rgba(212,175,55,0.08), transparent 70%),
+        radial-gradient(900px 500px at 50% 10%, rgba(212,175,55,0.06), transparent 70%),
         var(--bg);
       overflow:hidden;
     }
 
-    /* MONOGRAMA bronce envejecido */
+    /* Monograma MINIMAL (sin brillos ni textura) */
     header::before{
       content:"GM";
       position:absolute;
       top:50%;
       left:50%;
       transform:translate(-50%, -50%);
-      font-family:'Playfair Display', serif;
-      font-size:18rem;
+      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-size:17rem;
       font-weight:700;
-      background:linear-gradient(180deg,#d4af37 0%,#a67c00 60%,#6e5521 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 6px 14px rgba(0,0,0,0.6);
-      opacity:0.15;
-      letter-spacing:-8px;
+      color:rgba(255,255,255,0.05); /* blanco 5% */
+      letter-spacing:-4px;
       user-select:none;
       pointer-events:none;
       z-index:0;
     }
 
+    /* Nombre con la fuente “de iPhone” (ui-serif/Georgia/Times) */
+    .brand-serif{
+      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+    }
+
     header h1{
-      font-family:'Playfair Display', serif;
+      composes: brand-serif;
+      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
       font-weight:700;
-      font-size:clamp(3rem, 7vw, 5rem);
+      font-size:clamp(2.8rem, 7vw, 4.6rem);
       color:#fff;
       letter-spacing:.02em;
-      margin:0 0 12px 0;
+      margin:0 0 10px;
       position:relative;
       z-index:1;
     }
 
     header h2{
-      font-family:'Playfair Display', serif;
+      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
       font-weight:600;
       font-variant:small-caps;
-      letter-spacing:.25em;
-      font-size:clamp(1.05rem, 2.5vw, 1.35rem);
+      letter-spacing:.22em;
+      font-size:clamp(1.02rem, 2.4vw, 1.28rem);
       color:var(--muted);
       margin:0;
       position:relative;
@@ -92,16 +96,16 @@
     nav{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(130%) blur(6px);
-      background:rgba(0,0,0,.7);
+      background:rgba(0,0,0,.72);
       border-bottom:1px solid var(--line);
-      display:flex; justify-content:center; gap:36px;
+      display:flex; justify-content:center; gap:34px;
       padding:12px 16px;
     }
     nav a{
       color:var(--gold);
       text-decoration:none;
       font-weight:600;
-      letter-spacing:.06em;
+      letter-spacing:.05em;
       font-size:.98rem;
       position:relative;
       outline:none;
@@ -112,24 +116,25 @@
       transition:width .2s ease;
     }
     nav a:hover::after, nav a:focus-visible::after{ width:100% }
+    nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
 
     /* SECCIONES */
-    section{ max-width:1040px; margin:70px auto; padding:0 20px; }
+    section{ max-width:1040px; margin:68px auto; padding:0 20px; }
     .card{
       background:linear-gradient(180deg, var(--bg-alt), var(--bg));
       border:1px solid var(--line);
       border-radius:var(--radius);
       box-shadow:var(--shadow);
-      padding:28px;
+      padding:26px;
     }
 
     h3{
-      font-family:'Playfair Display', serif;
+      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
       font-weight:700;
-      font-size:clamp(1.5rem,2.4vw,1.9rem);
+      font-size:clamp(1.45rem,2.3vw,1.9rem);
       color:var(--gold);
-      letter-spacing:.04em;
-      margin:0 0 18px;
+      letter-spacing:.03em;
+      margin:0 0 16px;
       padding-bottom:10px;
       border-bottom:1px solid var(--line);
     }
@@ -139,7 +144,7 @@
 
     .cv-link{
       display:inline-block;
-      margin-top:20px;
+      margin-top:18px;
       color:var(--gold);
       font-weight:700;
       text-decoration:none;
@@ -178,6 +183,7 @@
       font-size:16px;
       transition:border-color .2s ease, box-shadow .2s ease;
     }
+    form input::placeholder, form textarea::placeholder{ color:#7c7c7c; }
     form input:focus, form textarea:focus{
       outline:none;
       border-color:var(--gold);
@@ -189,6 +195,7 @@
       border:1.5px solid var(--gold);
       padding:12px 22px;
       font-weight:700;
+      letter-spacing:.02em;
       cursor:pointer;
       border-radius:999px;
       transition:background .2s ease, color .2s ease, transform .2s ease, box-shadow .2s ease;
@@ -203,18 +210,24 @@
     footer{
       text-align:center;
       color:#9c9c9c;
-      padding:48px 20px 56px;
+      padding:46px 20px 54px;
       font-size:.95rem;
       border-top:1px solid var(--line);
       background:var(--bg);
+    }
+
+    /* Pequeño ajuste de títulos en móviles para evitar “salto medieval” */
+    @media (max-width:420px){
+      header h1{ letter-spacing:.01em; }
+      header::before{ font-size:15rem; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Germán Moreno</h1>
-    <h2>Abogado</h2>
+    <h1 class="brand-serif">Germán Moreno</h1>
+    <h2 class="brand-serif">Abogado</h2>
   </header>
 
   <nav>
@@ -224,7 +237,7 @@
   </nav>
 
   <section id="formacion" class="card">
-    <h3>Formación Académica</h3>
+    <h3 class="brand-serif">Formación Académica</h3>
     <ul>
       <li><strong>Título de Grado:</strong><br>
         • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025), a los 22 años de edad.</li>
@@ -240,7 +253,7 @@
   </section>
 
   <section id="areas" class="card">
-    <h3>Áreas de Práctica</h3>
+    <h3 class="brand-serif">Áreas de Práctica</h3>
     <ul class="areas">
       <li>Derecho Civil</li>
       <li>Derecho Penal</li>
@@ -252,7 +265,7 @@
   </section>
 
   <section id="contacto" class="card">
-    <h3>Contacto</h3>
+    <h3 class="brand-serif">Contacto</h3>
     <form id="contact-form" aria-label="Formulario de contacto">
       <input type="text" name="from_name" placeholder="Tu nombre" required />
       <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
