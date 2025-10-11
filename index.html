@@ -32,7 +32,6 @@
       scroll-behavior:smooth;
     }
 
-    /* HEADER con iluminación tipo óleo */
     header{
       position:relative;
       text-align:center;
@@ -44,7 +43,6 @@
       overflow:hidden;
     }
 
-    /* Capa de luz difusa tipo óleo */
     header::after{
       content:"";
       position:absolute; inset:0;
@@ -54,21 +52,18 @@
       z-index:0;
     }
 
-    /* MONOGRAMA ÓLEO SUAVE */
     header::before{
       content:"GM";
       position:absolute;
       top:50%; left:50%;
       transform:translate(-50%, -50%);
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-size:17rem;
       font-weight:700;
       background: linear-gradient(180deg, #c9a43a 0%, #a07b2f 55%, #6b5220 100%);
       -webkit-background-clip:text;
       -webkit-text-fill-color:transparent;
-      text-shadow:
-        0 1px 0 rgba(255,255,255,.03),
-        0 10px 24px rgba(0,0,0,.55);
+      text-shadow:0 10px 24px rgba(0,0,0,.55);
       opacity: .08;
       letter-spacing:-4px;
       user-select:none;
@@ -76,20 +71,18 @@
       z-index:1;
     }
 
-    /* Nombre y subtítulo */
     header h1{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:700;
       font-size:clamp(2.8rem, 7vw, 4.6rem);
       color:#fff;
-      letter-spacing:.02em;
       margin:0 0 10px;
       position:relative;
       z-index:2;
     }
 
     header h2{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:600;
       font-variant:small-caps;
       letter-spacing:.22em;
@@ -100,7 +93,6 @@
       z-index:2;
     }
 
-    /* NAV */
     nav{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(130%) blur(6px);
@@ -124,7 +116,6 @@
     }
     nav a:hover::after, nav a:focus-visible::after{ width:100% }
 
-    /* SECCIONES */
     section{ max-width:1040px; margin:68px auto; padding:0 20px; }
     .card{
       background:linear-gradient(180deg, var(--bg-alt), var(--bg));
@@ -135,7 +126,7 @@
     }
 
     h3{
-      font-family: ui-serif, "New York", Georgia, "Times New Roman", "Source Serif 4", serif;
+      font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:700;
       font-size:clamp(1.45rem,2.3vw,1.9rem);
       color:var(--gold);
@@ -144,9 +135,6 @@
       padding-bottom:10px;
       border-bottom:1px solid var(--line);
     }
-
-    ul{ padding-left:20px; margin:0; }
-    li{ margin-bottom:10px; }
 
     .cv-link{
       display:inline-block;
@@ -166,31 +154,21 @@
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
 
-    /* ===== ÁREAS DE PRÁCTICA (balanceado, sin “ítem suelto”) ===== */
+    /* ÁREAS DE PRÁCTICA — 2 columnas fijas */
     .areas{
       list-style:none;
       padding-left:0;
-      /* Multicolumn para equilibrar automáticamente */
-      column-gap:24px;
+      margin:0;
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:12px 48px;
     }
     .areas li{
       padding:10px 0;
       border-bottom:1px dashed var(--line);
-      break-inside: avoid;
-      -webkit-column-break-inside: avoid;
-      margin-right:8px;
     }
-    /* Móvil: 1 columna */
-    @media (max-width:599px){
-      .areas{ column-count:1; }
-    }
-    /* Tablet: 2 columnas */
-    @media (min-width:600px) and (max-width:1023px){
-      .areas{ column-count:2; }
-    }
-    /* Desktop: 3 columnas balanceadas */
-    @media (min-width:1024px){
-      .areas{ column-count:3; }
+    @media (min-width:700px){
+      .areas{ grid-template-columns: 1fr 1fr; }
     }
 
     form input, form textarea{
@@ -237,9 +215,6 @@
       background:var(--bg);
     }
 
-    @media (max-width:420px){
-      header::before{ font-size:15rem; }
-    }
   </style>
 </head>
 <body>
@@ -259,7 +234,7 @@
     <h3>Formación Académica</h3>
     <ul>
       <li><strong>Título de Grado:</strong><br>
-        • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025).</li>
+        • Egresado de la carrera de Abogacía en la Facultad de Derecho y Ciencias Políticas de la Universidad Cuenca del Plata (2025), a los 22 años de edad.</li>
       <li><strong>Estudios de Especialización:</strong><br>
         • ESPECIALIZACIÓN en Justicia Constitucional y Derechos Humanos — Universidad de Bolonia, Italia.<br>
         • ESPECIALIZACIÓN en Comunicación Política — Asociación Española de Escuela de Negocios - España, Granada.</li>
@@ -289,6 +264,7 @@
     <form id="contact-form" aria-label="Formulario de contacto">
       <input type="text" name="from_name" placeholder="Tu nombre" required />
       <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
+      <input type="tel" name="phone" placeholder="Tu teléfono" required />
       <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
       <button type="submit">Enviar</button>
     </form>
@@ -312,7 +288,7 @@
           statusEl.textContent = "✅ Mensaje enviado con éxito. Nos contactaremos pronto.";
           form.reset();
         }, function(error) {
-          statusEl.textContent = "❌ Error al enviar.Contacto directo: Estudiogermanmoreno@gmail.com .";
+          statusEl.textContent = "❌ Error al enviar. Contacto directo: Estudiogermanmoreno@gmail.com.";
           console.error("Error:", error);
         });
     });
