@@ -32,6 +32,7 @@
       scroll-behavior:smooth;
     }
 
+    /* HEADER */
     header{
       position:relative;
       text-align:center;
@@ -42,7 +43,6 @@
         var(--bg);
       overflow:hidden;
     }
-
     header::after{
       content:"";
       position:absolute; inset:0;
@@ -51,7 +51,6 @@
         radial-gradient(420px 220px at 38% 42%, rgba(120,80,20,.05), transparent 60%);
       z-index:0;
     }
-
     header::before{
       content:"GM";
       position:absolute;
@@ -70,7 +69,6 @@
       pointer-events:none;
       z-index:1;
     }
-
     header h1{
       font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:700;
@@ -80,7 +78,6 @@
       position:relative;
       z-index:2;
     }
-
     header h2{
       font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:600;
@@ -93,6 +90,7 @@
       z-index:2;
     }
 
+    /* NAV */
     nav{
       position:sticky; top:0; z-index:10;
       backdrop-filter:saturate(130%) blur(6px);
@@ -114,8 +112,9 @@
       width:0; height:1px; background:var(--gold);
       transition:width .2s ease;
     }
-    nav a:hover::after, nav a:focus-visible::after{ width:100% }
+    nav a:hover::after{ width:100% }
 
+    /* SECCIONES */
     section{ max-width:1040px; margin:68px auto; padding:0 20px; }
     .card{
       background:linear-gradient(180deg, var(--bg-alt), var(--bg));
@@ -130,7 +129,6 @@
       font-weight:700;
       font-size:clamp(1.45rem,2.3vw,1.9rem);
       color:var(--gold);
-      letter-spacing:.03em;
       margin:0 0 16px;
       padding-bottom:10px;
       border-bottom:1px solid var(--line);
@@ -154,13 +152,12 @@
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
 
-    /* ÁREAS DE PRÁCTICA — 2 columnas fijas */
     .areas{
       list-style:none;
       padding-left:0;
       margin:0;
       display:grid;
-      grid-template-columns: 1fr;
+      grid-template-columns:1fr;
       gap:12px 48px;
     }
     .areas li{
@@ -168,9 +165,10 @@
       border-bottom:1px dashed var(--line);
     }
     @media (min-width:700px){
-      .areas{ grid-template-columns: 1fr 1fr; }
+      .areas{ grid-template-columns:1fr 1fr; }
     }
 
+    /* FORMULARIO */
     form input, form textarea{
       width:100%;
       background:#0a0a0a;
@@ -262,9 +260,8 @@
   <section id="contacto" class="card">
     <h3>Contacto</h3>
     <form id="contact-form" aria-label="Formulario de contacto">
-      <input type="text" name="from_name" placeholder="Tu nombre" required />
+      <input type="text" name="from_name" placeholder="Tu nombre y celular de contacto" required />
       <input type="email" name="reply_to" placeholder="Tu correo electrónico" required />
-      <input type="tel" name="phone" placeholder="Tu teléfono" required />
       <textarea name="message" rows="5" placeholder="Tu mensaje" required></textarea>
       <button type="submit">Enviar</button>
     </form>
