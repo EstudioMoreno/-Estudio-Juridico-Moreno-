@@ -116,7 +116,6 @@
       letter-spacing:.05em;
       font-size:.98rem;
       position:relative;
-      outline:none;
     }
     nav a::after{
       content:""; position:absolute; left:0; bottom:-5px;
@@ -124,7 +123,6 @@
       transition:width .2s ease;
     }
     nav a:hover::after, nav a:focus-visible::after{ width:100% }
-    nav a:focus-visible{ outline:2px solid var(--gold); outline-offset:4px; border-radius:4px; }
 
     /* SECCIONES */
     section{ max-width:1040px; margin:68px auto; padding:0 20px; }
@@ -168,16 +166,31 @@
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
 
+    /* ===== ÁREAS DE PRÁCTICA (balanceado, sin “ítem suelto”) ===== */
     .areas{
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap:8px 24px;
       list-style:none;
       padding-left:0;
+      /* Multicolumn para equilibrar automáticamente */
+      column-gap:24px;
     }
     .areas li{
       padding:10px 0;
       border-bottom:1px dashed var(--line);
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      margin-right:8px;
+    }
+    /* Móvil: 1 columna */
+    @media (max-width:599px){
+      .areas{ column-count:1; }
+    }
+    /* Tablet: 2 columnas */
+    @media (min-width:600px) and (max-width:1023px){
+      .areas{ column-count:2; }
+    }
+    /* Desktop: 3 columnas balanceadas */
+    @media (min-width:1024px){
+      .areas{ column-count:3; }
     }
 
     form input, form textarea{
@@ -296,10 +309,10 @@
       statusEl.textContent = "Enviando…";
       emailjs.sendForm("service_fn9wak8", "template_upsfgkg", "#contact-form")
         .then(function() {
-          statusEl.textContent = "✅ Mensaje enviado con éxito.";
+          statusEl.textContent = "✅ Mensaje enviado con éxito. Nos contactaremos pronto.";
           form.reset();
         }, function(error) {
-          statusEl.textContent = "❌ Error al enviar. Intenta nuevamente.";
+          statusEl.textContent = "❌ Error al enviar.Contacto directo: Estudiogermanmoreno@gmail.com .";
           console.error("Error:", error);
         });
     });
