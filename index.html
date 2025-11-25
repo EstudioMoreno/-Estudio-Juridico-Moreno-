@@ -159,18 +159,74 @@
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
 
+    /* ÁREAS DE PRÁCTICA – ACORDEÓN */
     .areas{
       list-style:none;
       padding-left:0;
       margin:0;
       display:grid;
       grid-template-columns:1fr;
-      gap:12px 48px;
+      gap:12px 32px;
     }
-    .areas li{
-      padding:10px 0;
+
+    .area-item{
+      padding:8px 0;
       border-bottom:1px dashed var(--line);
     }
+
+    .area-toggle{
+      width:100%;
+      background:transparent;
+      border:none;
+      color:var(--text);
+      padding:4px 0;
+      text-align:left;
+      font-size:1rem;
+      font-weight:600;
+      font-family:'Source Sans 3', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      cursor:pointer;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+    }
+
+    .area-toggle:hover{
+      color:var(--gold);
+    }
+
+    .area-toggle:focus-visible{
+      outline:2px solid var(--gold);
+      outline-offset:3px;
+      border-radius:6px;
+    }
+
+    .area-arrow{
+      font-size:0.8rem;
+      opacity:.8;
+      transition:transform .2s ease;
+      margin-left:12px;
+    }
+
+    .area-content{
+      max-height:0;
+      overflow:hidden;
+      transition:max-height .25s ease;
+      font-size:0.95rem;
+      color:var(--muted);
+    }
+
+    .area-content p{
+      margin:6px 0 0;
+    }
+
+    .area-item.open .area-content{
+      max-height:220px; /* suficiente para el texto */
+    }
+
+    .area-item.open .area-arrow{
+      transform:rotate(180deg);
+    }
+
     @media (min-width:700px){
       .areas{ grid-template-columns:1fr 1fr; }
     }
@@ -254,13 +310,96 @@
   <section id="areas" class="card">
     <h3>Áreas de Práctica</h3>
     <ul class="areas">
-      <li>Derecho Civil</li>
-      <li>Derecho Penal</li>
-      <li>Derecho Administrativo</li>
-      <li>Derecho Constitucional y Político</li>
-      <li>Derecho Laboral</li>
-      <li>Derecho de Familia</li>
-      <li>Derecho Electoral</li>
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Civil
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Daños y perjuicios, contratos civiles, accidentes de tránsito, reclamos por incumplimientos,
+            cobros de pesos y conflictos de responsabilidad civil.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Penal
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Asistencia y defensa técnica en investigaciones penales, audiencias, medidas de coerción,
+            juicios orales y análisis de garantías constitucionales en el proceso penal.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Administrativo
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Reclamos frente a la Administración Pública, impugnación de actos administrativos,
+            sumarios, responsabilidad del Estado y defensa de derechos de particulares frente al sector público.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Laboral
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Despidos, indemnizaciones, diferencias salariales, horas extra, accidentes y enfermedades laborales,
+            registración deficiente y otros reclamos derivados de la relación de trabajo.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho de Familia
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Alimentos, cuidado personal y régimen de comunicación, divorcios, uniones convivenciales,
+            compensaciones económicas y cuestiones patrimoniales derivadas de vínculos familiares.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Constitucional y Político
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Acciones de inconstitucionalidad, amparos, control de convencionalidad, protección de derechos fundamentales
+            y análisis jurídico de cuestiones institucionales y políticas.
+          </p>
+        </div>
+      </li>
+
+      <li class="area-item">
+        <button class="area-toggle" type="button">
+          Derecho Electoral
+          <span class="area-arrow" aria-hidden="true">▾</span>
+        </button>
+        <div class="area-content">
+          <p>
+            Asesoramiento en procesos electorales, impugnación de candidaturas y actas, recursos ante autoridades electorales,
+            y estudio de la normativa y jurisprudencia electoral.
+          </p>
+        </div>
+      </li>
     </ul>
   </section>
 
@@ -293,6 +432,14 @@
           statusEl.textContent = "❌ Error al enviar. Contacto directo: Estudiogermanmoreno@gmail.com.";
           console.error("Error:", error);
         });
+    });
+
+    // JS para el acordeón de Áreas de Práctica
+    document.querySelectorAll('.area-toggle').forEach(function(button){
+      button.addEventListener('click', function(){
+        const item = button.closest('.area-item');
+        item.classList.toggle('open');
+      });
     });
   </script>
 
