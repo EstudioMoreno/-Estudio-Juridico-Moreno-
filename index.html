@@ -51,24 +51,9 @@
         radial-gradient(420px 220px at 38% 42%, rgba(120,80,20,.05), transparent 60%);
       z-index:0;
     }
-    header::before{
-      content:"GM";
-      position:absolute;
-      top:50%; left:50%;
-      transform:translate(-50%, -50%);
-      font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
-      font-size:17rem;
-      font-weight:700;
-      background: linear-gradient(180deg, #c9a43a 0%, #a07b2f 55%, #6b5220 100%);
-      -webkit-background-clip:text;
-      -webkit-text-fill-color:transparent;
-      text-shadow:0 10px 24px rgba(0,0,0,.55);
-      opacity: .08;
-      letter-spacing:-4px;
-      user-select:none;
-      pointer-events:none;
-      z-index:1;
-    }
+
+    /* --- GM ELIMINADO: antes estaba en header::before --- */
+
     header h1{
       font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:700;
@@ -78,6 +63,17 @@
       position:relative;
       z-index:2;
     }
+    /* Detalle sobrio debajo del nombre */
+    header h1::after{
+      content:"";
+      display:block;
+      width:72px;
+      height:2px;
+      margin:14px auto 0;
+      background:linear-gradient(90deg, var(--gold), rgba(212,175,55,0.25));
+      border-radius:999px;
+    }
+
     header h2{
       font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:600;
@@ -85,7 +81,7 @@
       letter-spacing:.22em;
       font-size:clamp(1.02rem, 2.4vw, 1.28rem);
       color:var(--muted);
-      margin:0;
+      margin:22px 0 0;
       position:relative;
       z-index:2;
     }
