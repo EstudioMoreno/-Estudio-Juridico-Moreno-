@@ -52,8 +52,6 @@
       z-index:0;
     }
 
-    /* --- GM ELIMINADO: antes estaba en header::before --- */
-
     header h1{
       font-family:"Source Serif 4", Georgia, "Times New Roman", serif;
       font-weight:700;
@@ -63,7 +61,6 @@
       position:relative;
       z-index:2;
     }
-    /* Detalle sobrio debajo del nombre */
     header h1::after{
       content:"";
       display:block;
@@ -128,6 +125,20 @@
       margin:0 0 16px;
       padding-bottom:10px;
       border-bottom:1px solid var(--line);
+    }
+
+    /* Espaciado Formación Académica */
+    #formacion ul{
+      list-style:none;
+      padding-left:0;
+      margin:12px 0 0;
+    }
+    #formacion li{
+      margin-bottom:18px;
+      line-height:1.7;
+    }
+    #formacion li:last-child{
+      margin-bottom:0;
     }
 
     .cv-link{
@@ -203,9 +214,9 @@
     footer{
       text-align:center;
       color:#9c9c9c;
-      padding:46px 20px 54px;
+      padding:0;
       font-size:.95rem;
-      border-top:1px solid var(--line);
+      border-top:none;
       background:var(--bg);
     }
 
@@ -264,9 +275,7 @@
     <p id="form-status" role="status" aria-live="polite" style="margin-top:10px;color:var(--muted);"></p>
   </section>
 
-  <footer>
-    © 2025
-  </footer>
+  <footer></footer>
 
   <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2.6.4/dist/email.min.js"></script>
   <script>
