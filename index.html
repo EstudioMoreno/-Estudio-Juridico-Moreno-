@@ -30,7 +30,7 @@
       color:var(--text);
       line-height:1.7;
       scroll-behavior:smooth;
-      font-size:17px; /* texto base un poco más grande */
+      font-size:17px;
     }
 
     /* HEADER */
@@ -155,7 +155,7 @@
       border-bottom:1px solid var(--line);
     }
 
-    /* Espaciado Formación Académica */
+    /* Formación Académica */
     #formacion ul{
       list-style:none;
       padding-left:0;
@@ -167,6 +167,19 @@
       font-size:1.02rem;
     }
     #formacion li:last-child{
+      margin-bottom:0;
+    }
+
+    /* sublista prolija para los posgrados */
+    #formacion .sub-posgrado{
+      list-style:none;
+      padding-left:0;
+      margin:10px 0 0;
+    }
+    #formacion .sub-posgrado li{
+      margin-bottom:12px;
+    }
+    #formacion .sub-posgrado li:last-child{
       margin-bottom:0;
     }
 
@@ -189,7 +202,7 @@
       box-shadow:0 10px 24px rgba(212,175,55,.18);
     }
 
-    /* ÁREAS DE PRÁCTICA – ACORDEÓN MEJORADO */
+    /* ÁREAS DE PRÁCTICA – ACORDEÓN */
     .areas{
       list-style:none;
       padding-left:0;
@@ -345,17 +358,23 @@
       </li>
 
       <li>
-        <strong>Estudios de Posgrado:</strong><br><br>
-
-        • <strong>TÍTULO:</strong> Maestría en Justicia Constitucional y Derechos Humanos.<br>
-        Institución: Universidad de Bolonia, Italia.<br>
-
-        • <strong>TÍLULO:</strong> Especialista en Comunicación Política.<br>
-        Institución: Asociación Española de Escuela de Negocios. Granada, España.<br>
-        Estado: Finalizado año 2025.<br><br>
-
-        • <strong>TÍTULO:</strong> Curso Especialización en Derecho: Crimen Organizado, Corrupción y Terrorismo.<br>
-        Institución: Universidad de Salamanca, España.
+        <strong>Estudios de Posgrado:</strong>
+        <ul class="sub-posgrado">
+          <li>
+            • <strong>TÍTULO:</strong> Maestría en Justicia Constitucional y Derechos Humanos.<br>
+            Institución: Universidad de Bolonia, Italia.<br>
+            Estado: Cursando actualmente.
+          </li>
+          <li>
+            • <strong>TÍTULO OBTENIDO:</strong> Especialista en Comunicación Política.<br>
+            Institución: Asociación Española de Escuela de Negocios. Granada, España.<br>
+            Estado: Finalizado año 2025.
+          </li>
+          <li>
+            • <strong>TÍTULO:</strong> Curso Especialización en Derecho: Crimen Organizado, Corrupción y Terrorismo.<br>
+            Institución: Universidad de Salamanca, España.
+          </li>
+        </ul>
       </li>
 
       <li>
