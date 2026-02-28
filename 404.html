@@ -1,12 +1,18 @@
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   <title>Redireccionando…</title>
-  <meta http-equiv="refresh" content="0; url=/germanmoreno.github.io/">
   <script>
-    window.location.href = "/germanmoreno.github.io/";
+    const target = "https://estudiomoreno.github.io/germanmoreno.github.io/";
+    const url = target + window.location.search + window.location.hash;
+    window.location.replace(url);
   </script>
+  <noscript>
+    <meta http-equiv="refresh" content="0; url=https://estudiomoreno.github.io/germanmoreno.github.io/">
+  </noscript>
 </head>
-<body>Redireccionando…</body>
+<body>
+  Redireccionando…
+</body>
 </html>
