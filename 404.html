@@ -3,11 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <title>Redireccionando…</title>
+
   <script>
+    // DESTINO: tu página personal (project page)
     const target = "https://estudiomoreno.github.io/germanmoreno.github.io/";
+
+    // conserva query (?fbclid=...) y hash (#contacto)
     const url = target + window.location.search + window.location.hash;
+
     window.location.replace(url);
   </script>
+
   <noscript>
     <meta http-equiv="refresh" content="0; url=https://estudiomoreno.github.io/germanmoreno.github.io/">
   </noscript>
